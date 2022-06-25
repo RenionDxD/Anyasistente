@@ -21,7 +21,7 @@ def MensajesVoz():
     try:
         with sr.Microphone() as source:
             talk("Escuchando...2")
-            r.adjust_for_ambient_noise(source, duration = 1)
+            r.adjust_for_ambient_noise(source, 1)
             audio = s.listen(source)
             mes = s.recognize_google(audio, language="es")
             mes = mes.lower()
@@ -31,16 +31,20 @@ def MensajesVoz():
     return mes    
 
 def listen():
+    rec = ""
     try:
         with sr.Microphone() as source:
                 talk("te escucho")
-                r.adjust_for_ambient_noise(source, duration=1)
+                r.adjust_for_ambient_noise(source, 1)
                 audio = r.listen(source)
                 rec = r.recognize_google(audio, language="es")
                 rec = rec.lower()
                 if nombre in rec:
                     rec = rec.replace(nombre, '')
                     print(rec)
+    except sr.UnknownValueError:
+        print("no se entendio")
+        talk('Perdona no pude entenderte')
     except: 
             talk('Perdona no pude entenderte')
             

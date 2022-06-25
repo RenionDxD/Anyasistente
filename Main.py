@@ -1,7 +1,7 @@
 import funciones_basicas.sonidos as sonido
 import funciones_basicas.Funciones_voz as Fv 
 import funciones_basicas.Funciones as FJ
-import os, colors, alarma, bot 
+import alarma, bot 
 import subprocess as sub
 
                 
@@ -24,10 +24,6 @@ def JUNO():
           with open('contactos_What.json','r') as contenido:
            datos = contenido.read()
           FJ.mensajes(rec,datos)
-    elif 'colores' in rec:
-        Fv.talk("Exelente........")
-        Fv.talk("abriendo camara.....")
-        colors.capture()
     elif 'alarma' in rec:
         alar = rec.replace('alarma', '')
         alarma.programar_ala(alar)  

@@ -1,3 +1,5 @@
+import sys
+import debug
 import funciones_basicas.sonidos as sonido
 import funciones_basicas.Funciones_voz as Fv 
 import funciones_basicas.Funciones as FJ
@@ -39,11 +41,14 @@ def JUNO():
 ##########FUNCION PRINCIPAL#############
 
 if __name__ == '__main__':
-    print("inicializando a JUNO...")  
-    sonido.CARGANDO() 
-    sonido.ENTRADA() 
+    for args in sys.argv:
+        if args == 'debug':
+            debug.info()
+    print("inicializando a JUNO...")
+    sonido.CARGANDO()
+    sonido.ENTRADA()
     JUNO()
-    sonido.SALIDA()   
+    sonido.SALIDA()
     
 
         

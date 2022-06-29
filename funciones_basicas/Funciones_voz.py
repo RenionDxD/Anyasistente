@@ -1,15 +1,18 @@
 import speech_recognition as sr
 import subprocess as sub
 import pyttsx3
+import os
+from dotenv import load_dotenv
 
-
+load_dotenv()
 
 nombre = 'juno'
 r = sr.Recognizer()
 s = sr.Recognizer()
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[3].id)
+#engine.setProperty('voice', voices[0].id)
+engine.setProperty('voice', os.getenv('VOICE_INDEX'))
 
 
 ##########FUNCIONES DE ENTRADA Y SALIDA DE VOZ############
@@ -26,7 +29,7 @@ def MensajesVoz():
             mes = s.recognize_google(audio, language="es")
             mes = mes.lower()
     except: 
-            talk('Perdona no pude entenderte')
+        talk('Perdona no pude entenderte')
             
     return mes    
 
@@ -46,6 +49,6 @@ def listen():
         print("no se entendio")
         talk('Perdona no pude entenderte')
     except: 
-            talk('Perdona no pude entenderte')
+        talk('Perdona no pude entenderte')
             
     return rec

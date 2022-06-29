@@ -43,9 +43,12 @@ def listen():
                     rec = rec.replace(nombre, '')
                     print(rec)
     except sr.UnknownValueError:
-        print("no se entendio")
-        talk('Perdona no pude entenderte')
+         print("no se entendio")
+         talk('Perdona no pude entenderte')
+         print("")
     except: 
-            talk('Perdona no pude entenderte')
-            
+          talk('Perdona no pude entenderte')
+          print("")
     return rec
+
+

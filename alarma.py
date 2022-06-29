@@ -7,7 +7,8 @@ def programar_ala(alar):
     alar = alar.strip()
     Main.Fv.talk("alarma activada a las "+ alar +" Horas")
     while True:
-        if datetime.datetime.now().strftime('%H:%M') == alar:
+        if datetime.datetime.now().strftime('%H,%M') == alar:
+           print("hhhhhhhhhhhhhhh") 
            Main.Fv.talk("DESPIERTAAAAAAAA!!!!") 
            mixer.init()
            mixer.music.load("rasputin-boney-m-sub-espanol.mp3")

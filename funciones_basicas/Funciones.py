@@ -9,10 +9,10 @@ def help():
 
 def contactos(datos):
         objecto = empty
-        objecto=json.loads(datos)  
-        u = Fv.MensajesVoz()
-        f=objecto[u]
-        g=f["Tel"]
+        objecto = json.loads(datos)
+        u = Fv.listen()
+        f = objecto[u]
+        g = f["Tel"]
         print(g)
         return g
 

@@ -36,7 +36,7 @@ def mensajes(rec,datos):
         Fv.talk("a quien deseas enviar el mensaje?")       
         contacto = contactos(datos)
         Fv.talk("cual es el mensaje que deseas enviar?")
-        mensaje = input()
+        mensaje = Fv.listen()
         try:
             pywhatkit.sendwhatmsg_instantly("+521618"+contacto,
             mensaje)

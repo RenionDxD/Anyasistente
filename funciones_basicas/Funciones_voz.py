@@ -52,3 +52,20 @@ def listen():
     return rec
 
 
+def Atencion():
+    llamado = ""
+    try:
+        with sr.Microphone() as source:
+                print("hola")
+                r.adjust_for_ambient_noise(source, 1)
+                audio = r.listen(source)
+                llamado = r.recognize_google(audio, language="es")
+                llamado = llamado.lower()
+                if nombre in llamado:
+                    llamado = llamado.replace(nombre, '')
+                    print(llamado)
+    except sr.UnknownValueError:
+         print("A")
+    except: 
+          print("B")
+    return llamado

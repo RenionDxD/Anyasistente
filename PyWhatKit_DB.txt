@@ -23,3 +23,23 @@ Time: 0:33
 Phone Number: +5216183188338
 Message: perdona si no puedo contestarte es que estoy haciendo la alexa
 --------------------
+Date: 10/7/2022
+Time: 2:27
+Phone Number: +5216183188338
+Message: ojalá tengas una bonita noche
+--------------------
+Date: 10/7/2022
+Time: 2:30
+Phone Number: +5216183188338
+Message: que tengas una bonita noche
+--------------------
+Date: 10/7/2022
+Time: 2:34
+Phone Number: +5216183188338
+Message: hasta mañana
+--------------------
+Date: 10/7/2022
+Time: 2:38
+Phone Number: +5216183188338
+Message: hasta mañana
+--------------------

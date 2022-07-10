@@ -1,6 +1,6 @@
 import funciones_basicas.sonidos  as sonido
 import funciones_basicas.Funciones_voz as Fv 
-
+import funciones_basicas.Funciones as FJ 
 
 
                 
@@ -11,7 +11,6 @@ def JUNO():
     llamado = Fv.Atencion()
     print(llamado)
     if 'ania' in llamado:
-        import funciones_basicas.Funciones as FJ 
         rec = Fv.listen()
         print(rec)
         if 'reproduce' in rec:
@@ -23,16 +22,16 @@ def JUNO():
         elif 'mensaje' in rec:
             if 'mensaje' in rec:
                 rec = rec.replace('mensaje','')
-
             with open('contactos_What.json','r') as contenido:
                 datos = contenido.read()
                 FJ.mensajes(rec,datos)
         elif 'alarma' in rec:
-            import subprocess as sub
+            import threading
+            import alarma as al
             alar = rec.replace('alarma', '')
-            #alarma.programar_ala(alar)  
-            sub.Popen(['python', '/home/ricardo/proyecto/Anyasistente/alarma.py', alar])
-            #sub.run(["python ./alarma.py", alar])
+            #alar = "01:49"
+            thread = threading.Thread(target=al.programar_ala, args=(alar,))
+            thread.start()
         elif 'ayuda' in rec:
             hel = rec.replace('ayuda', '')
             help()
@@ -49,16 +48,16 @@ def JUNO():
         print("")
 
 ##########FUNCION PRINCIPAL#############
-
+from socket import create_connection, gethostbyname
 if __name__ == '__main__':
-    print("inicializando a JUNO...")  
-    Fv.habla("hola mucho gusto me llamo anya")
-    sonido.No_internet()
-    #sub.run('fish',shell=True)
-    sonido.CARGANDO() 
-    sonido.ENTRADA() 
-    JUNO()
-    sonido.SALIDA()   
-    
-
+   def conexion():
+     try:
+        sonido.CARGANDO() 
+        gethostbyname("google.com")
+        conexion = create_connection(("google.com", 80), 1)
+        conexion.close()
+        return sonido.ENTRADA(), JUNO()
+     except:
+        return sonido.No_internet(),sonido.SALIDA()           
+conexion()
         

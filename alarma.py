@@ -1,5 +1,4 @@
-import Main 
-import datetime,keyboard
+import datetime
 from pygame import mixer 
 import time
 import sys
@@ -7,6 +6,7 @@ import sys
 
 def programar_ala(alar):
     print("carajo")
+    print(alar)
     alar = alar.strip()
     while True:
         if datetime.datetime.now().strftime('%H:%M') == alar:

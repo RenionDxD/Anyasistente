@@ -1,25 +1,17 @@
-from click import command
 import speech_recognition as sr
 import subprocess as sub
-import pyttsx3
+
 
 
 
 nombre = 'juno'
 r = sr.Recognizer()
 s = sr.Recognizer()
-engine = pyttsx3.init()
-voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[3].id)
 
 
 ##########FUNCIONES DE ENTRADA Y SALIDA DE VOZ############
-def talk(rec):
-    engine.say(rec)
-    engine.runAndWait()
 
 def habla(rec):
-    #command = f'gtts-cli -l es -t com "{rec}" | play -q -t mp3 - tempo 1.3 '
     command = f'gtts-cli -l es -t com "{rec}" | play -q -t mp3 - tempo 1.3 '
     sub.run([command], shell=True)
 
@@ -32,7 +24,7 @@ def MensajesVoz():
             mes = s.recognize_google(audio, language="es")
             mes = mes.lower()
     except: 
-            talk('Perdona no pude entenderte')
+            habla('Perdona no pude entenderte')
             
     return mes    
 
@@ -53,7 +45,7 @@ def listen():
          habla('Perdona no pude entenderte')
          print("")
     except: 
-          talk('Perdona no pude entenderte')
+          habla('Perdona no pude entenderte')
           print("")
     return rec
 

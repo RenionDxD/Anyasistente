@@ -19,6 +19,5 @@ def programar_ala(alar):
            break  
 
 if __name__ == '__main__':
- print("entro al sistema")
- alar = sys.argv[0]
+ alar = sys.argv[1]
  programar_ala(alar)

@@ -1,3 +1,4 @@
+from click import command
 import speech_recognition as sr
 import subprocess as sub
 import pyttsx3
@@ -17,10 +18,15 @@ def talk(rec):
     engine.say(rec)
     engine.runAndWait()
 
+def habla(rec):
+    #command = f'gtts-cli -l es -t com "{rec}" | play -q -t mp3 - tempo 1.3 '
+    command = f'gtts-cli -l es -t com "{rec}" | play -q -t mp3 - tempo 1.3 '
+    sub.run([command], shell=True)
+
 def MensajesVoz():
     try:
         with sr.Microphone() as source:
-            talk("Escuchando...2")
+            habla("Escuchando...2")
             r.adjust_for_ambient_noise(source, 1)
             audio = s.listen(source)
             mes = s.recognize_google(audio, language="es")
@@ -34,7 +40,7 @@ def listen():
     rec = ""
     try:
         with sr.Microphone() as source:
-                talk("te escucho")
+                habla("te escucho")
                 r.adjust_for_ambient_noise(source, 1)
                 audio = r.listen(source)
                 rec = r.recognize_google(audio, language="es")
@@ -44,7 +50,7 @@ def listen():
                     print(rec)
     except sr.UnknownValueError:
          print("no se entendio")
-         talk('Perdona no pude entenderte')
+         habla('Perdona no pude entenderte')
          print("")
     except: 
           talk('Perdona no pude entenderte')

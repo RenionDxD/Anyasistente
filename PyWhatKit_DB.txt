@@ -1,45 +1,5 @@
-Date: 7/7/2022
-Time: 16:33
-Phone Number: +5216182139223
-Message: hola mi amor
---------------------
-Date: 7/7/2022
-Time: 17:45
-Phone Number: +5216182139223
-Message: hola como estas
---------------------
-Date: 7/7/2022
-Time: 17:48
-Phone Number: +5216182139223
-Message: hola cómo estás
---------------------
-Date: 7/7/2022
-Time: 17:58
-Phone Number: +5216182139223
-Message: este es una prueba de ania
---------------------
 Date: 10/7/2022
-Time: 0:33
+Time: 19:34
 Phone Number: +5216183188338
-Message: perdona si no puedo contestarte es que estoy haciendo la alexa
---------------------
-Date: 10/7/2022
-Time: 2:27
-Phone Number: +5216183188338
-Message: ojalá tengas una bonita noche
---------------------
-Date: 10/7/2022
-Time: 2:30
-Phone Number: +5216183188338
-Message: que tengas una bonita noche
---------------------
-Date: 10/7/2022
-Time: 2:34
-Phone Number: +5216183188338
-Message: hasta mañana
---------------------
-Date: 10/7/2022
-Time: 2:38
-Phone Number: +5216183188338
-Message: hasta mañana
+Message: ya estoy bien cansado ya me quiero morir
 --------------------

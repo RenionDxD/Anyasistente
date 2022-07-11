@@ -1,0 +1,15 @@
+{
+    "te_escucho": {
+        "0"   : "te escucho..",
+        "1"   : "que pasa?",
+        "2"   : "te puedo ayudar en algo?",  
+        "3"   : "que sucede?"
+       },
+    "no_entiendo": {
+        "0"   : "no te he entendido",
+        "1"   : "disculpa, que dijiste?",
+        "2"   : "uy no te he entendido",
+        "3"   : "me lo volverias a repetir porfavor?"
+    }
+    
+}

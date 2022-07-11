@@ -1,6 +1,5 @@
-from bot import habla
 import funciones_basicas.Funciones_voz as Fv 
-import pywhatkit, datetime, wikipedia, json
+import pywhatkit, json
 
 
 #############FUNCIONES DE JUNO######################  
@@ -20,12 +19,14 @@ def reproduceY(rec):
     pywhatkit.playonyt(music)
 
 def buscaW(rec):
+    import wikipedia
     order = rec.replace('busca', '')
     wikipedia.set_lang("es")
     info = wikipedia.summary(order, 2)
     Fv.habla(info)
 
 def hora():
+     import datetime
      hora = datetime.datetime.now().strftime('%I:%M %p')
      Fv.habla("son las "+hora)
 
@@ -41,4 +42,4 @@ def mensajes(rec,datos):
             Fv.habla("El mensaje a "+ persona + "fue enviado exitosamente")
         except:
             Fv.sonido.error()
-            habla("no se pudo encontrar")
+            Fv.habla("no se pudo encontrar")

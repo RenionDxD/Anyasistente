@@ -1,6 +1,7 @@
+from distutils.util import execute
 import speech_recognition as sr
 import subprocess as sub
-
+import jsons.des_cod as frase
 
 
 
@@ -32,7 +33,7 @@ def listen():
     rec = ""
     try:
         with sr.Microphone() as source:
-                habla("te escucho")
+                habla(frase.palabras("te_escucho"))
                 r.adjust_for_ambient_noise(source, 1)
                 audio = r.listen(source)
                 rec = r.recognize_google(audio, language="es")
@@ -42,7 +43,7 @@ def listen():
                     print(rec)
     except sr.UnknownValueError:
          print("no se entendio")
-         habla('Perdona no pude entenderte')
+         habla(frase.palabras("no_entiendo"))
          print("")
     except: 
           habla('Perdona no pude entenderte')
@@ -63,7 +64,7 @@ def Atencion():
                     llamado = llamado.replace(nombre, '')
                     print(llamado)
     except sr.UnknownValueError:
-         print("A")
+         print("No se entendio lo que dijiste")
     except: 
           print("B")
     return llamado

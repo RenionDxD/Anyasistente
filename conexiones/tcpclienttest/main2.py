@@ -41,6 +41,5 @@ def tcpserver():
             elif msg[2] == "cerrar":
                 print("cerrar")
 
-
 if __name__ == '__main__':
     tcpserver()

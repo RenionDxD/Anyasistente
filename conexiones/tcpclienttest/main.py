@@ -1,5 +1,5 @@
 import socket
-
+import funciones_basicas.Funciones_voz as Fv
 
 def tcpclient(orden,modulo):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -20,7 +20,9 @@ def tcpclient(orden,modulo):
             data = sock.recv(1024)
             amount_received += len(data)
             print('received')
-
+    except: 
+        Fv.habla("uy ocurrio un error a conectarme a tu casa")
+        sock.close()
     finally:
         print('closing socket')
         sock.close()

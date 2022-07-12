@@ -1,20 +1,19 @@
 ############FUNCION DE MENU######################
-from bot import habla
-
-
 def JUNO():
  import funciones_basicas.Funciones_voz as Fv 
  import funciones_basicas.Funciones as FJ  
- import conexiones.tcpclienttest.main as tcp
+
  while True:
-    llamado = Fv.Atencion()
+    #llamado = Fv.Atencion()
+    llamado = "ania"
     print(llamado)
     if 'ania' in llamado:
         rec = Fv.listen()
+        #rec = "apagar luces"
         print(rec)
         if 'reproduce' in rec:
             FJ.reproduceY(rec)
-        elif 'tiempo' in rec:
+        elif 'hora' in rec:
             FJ.hora()
         elif 'busca' in rec:
             FJ.buscaW(rec)
@@ -33,39 +32,24 @@ def JUNO():
         elif 'ayuda' in rec:
             hel = rec.replace('ayuda', '')
             help()
-        elif 'crear protocolo' in rec:
-            print("protocolo")
+        elif 'crear' in rec:
+            print("entra a crear")
+        elif 'protocolo' in rec:
+            print("hola1")
+            rec = rec.replace('protocolo ', '')
+            print("lkfnwoedfnw")
+            FJ.protocolo(rec)
         elif 'adiós' in rec:
             Fv.habla("hasta luego señor")
             break
-        elif 'encender' in rec:
-            rec = rec.split(' ')
-            modulo = rec[-1]
-            orden = rec[0]
-            Fv.habla("encendiendo"+modulo)
-            tcp.tcpclient(orden,modulo)
-        elif 'apagar' in rec:
-            rec = rec.split(' ')
-            modulo = rec[-1]
-            orden = rec[0]
-            Fv.habla("apagando"+modulo)
-            tcp.tcpclient(orden,modulo)
-        elif 'abrir' in rec:
-            rec = rec.split(' ')
-            modulo = rec[-1]
-            orden = rec[0]
-            Fv.habla("abriendo"+modulo)
-            tcp.tcpclient(orden,modulo)
-        elif 'cerrar' in rec:
-            rec = rec.split(' ')
-            modulo = rec[-1]
-            orden = rec[0]
-            Fv.habla("cerrarando"+modulo)
-            tcp.tcpclient(orden,modulo)
+        elif 'encender' in rec or 'apagar' in rec or 'abrir' in rec or 'cerrar' in rec:
+            print("puta madre")
+            FJ.operaciones(rec)
         else:
-          print("kkkkkkkkk")
+          #conversacion(rec)
+          print("hhhh")
     else:
-        print("")
+        print("lllll")
             
 
 ##########FUNCION PRINCIPAL#############
@@ -73,6 +57,7 @@ from socket import create_connection, gethostbyname
 import funciones_basicas.sonidos  as sonido
 import speech_recognition as sr  
 if __name__ == '__main__':
+   JUNO()
    def conexion():
      try:
         sonido.CARGANDO() 
@@ -84,5 +69,5 @@ if __name__ == '__main__':
         return "algo fallo"
      except:
         return sonido.No_internet(),sonido.SALIDA()           
-conexion()
+#conexion()
         

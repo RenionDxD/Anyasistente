@@ -1,6 +1,7 @@
 import funciones_basicas.Funciones_voz as Fv 
 import pywhatkit, json
-
+import conexiones.tcpclienttest.main as tcp
+import speech_recognition as sr
 
 #############FUNCIONES DE JUNO######################  
 
@@ -43,3 +44,35 @@ def mensajes(rec,datos):
         except:
             Fv.sonido.error()
             Fv.habla("no se pudo encontrar")
+
+def operaciones(rec):
+            endo = ""
+            rec = rec.split(' ')
+            modulo = rec[-1]
+            orden = rec[0]
+            if orden == 'encender':
+                endo = "encendiendo"
+            elif orden == 'apagar':
+                endo = "apagando"
+            elif orden == 'abrir':
+                endo = "abriendo"
+            elif orden == 'cerrar':
+                endo = "cerrando"
+            Fv.habla(endo+" "+modulo)
+            try:
+             tcp.tcpclient(orden,modulo)
+            except:
+                Fv.habla("uy ocurrio un error a conectarme a tu casa")
+
+
+def crear_protocolo():
+ print("hola crear")
+
+
+def protocolo(rec):
+    with open('jsons/operac_casa.json','r') as contenido:
+       datos  = contenido.read()
+    for i in range (0,2):
+        i = str(i)
+        contacto = json.loads(datos)[rec][i]
+        operaciones(contacto)

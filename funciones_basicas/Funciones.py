@@ -1,5 +1,5 @@
 import funciones_basicas.Funciones_voz as Fv 
-import pywhatkit, json
+#import pywhatkit, json
 import conexiones.tcpclienttest.main as tcp
 import speech_recognition as sr
 
@@ -17,7 +17,7 @@ def contactos(datos):
 def reproduceY(rec):
     music = rec.replace('reproduce', '')
     Fv.habla('reproduciendo' + music)
-    pywhatkit.playonyt(music)
+    #pywhatkit.playonyt(music)
 
 def buscaW(rec):
     import wikipedia
@@ -37,8 +37,8 @@ def mensajes(rec,datos):
         Fv.habla("cual es el mensaje que deseas enviar?")
         mensaje = Fv.listen()
         try:
-            pywhatkit.sendwhatmsg_instantly("+521618"+contacto,
-            mensaje)
+            #pywhatkit.sendwhatmsg_instantly("+521618"+contacto,
+            #mensaje)
             Fv.habla("enviando..........")
             Fv.habla("El mensaje a "+ persona + "fue enviado exitosamente")
         except:

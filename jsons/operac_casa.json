@@ -1,0 +1,15 @@
+{
+   "protocolos" : {
+                        "0" : "encender luces",
+                        "1" : "apagar luces",
+                        "2" : "abrir puerta",
+                        "3" : "cerrar puerta"
+                     },
+
+   "buenas noches" : {
+                        "1" : "apagar luces",
+                        "0" : "encender luces"
+   }
+
+
+}

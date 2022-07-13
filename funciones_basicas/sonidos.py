@@ -54,4 +54,8 @@ def INICIANDO():
     mixer.music.play()
     time.sleep(10)
     
-    
+def No_internet():
+    mixer.music.load('sounds/anya_no_internet/no_hay_internet.mp3')    
+    mixer.music.set_volume(0.7)
+    mixer.music.play()
+    time.sleep(10)

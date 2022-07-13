@@ -23,8 +23,8 @@ def MensajesVoz():
         #    habla("Escuchando...2")
         #    r.adjust_for_ambient_noise(source, 1)
         #    audio = s.listen(source)
-        mes = Record.listen()
-        mes = s.recognize_google(mes, language="es")
+        data = Record.listen()
+        mes = s.recognize_google(data, language="es")
         mes = mes.lower()
     except:
         habla('Perdona no pude entenderte')
@@ -39,8 +39,8 @@ def listen():
         #    habla(frase.palabras("te_escucho"))
         #    r.adjust_for_ambient_noise(source, 1)
         #    audio = r.listen(source)
-        rec = Record.listen()
-        rec = r.recognize_google(rec, language="es")
+        data = Record.listen()
+        rec = r.recognize_google(data, language="es")
         rec = rec.lower()
         if nombre in rec:
             rec = rec.replace(nombre, '')
@@ -60,8 +60,8 @@ def Atencion():
         #        print("escuchando....")
         #        r.adjust_for_ambient_noise(source, 1)
         #        audio = r.listen(source)
-        llamado = Record.listen()
-        llamado = r.recognize_google(llamado, language="es")
+        data = Record.listen()
+        llamado = r.recognize_google(data, language="es")
         llamado = llamado.lower()
         if nombre in llamado:
             llamado = llamado.replace(nombre, '')

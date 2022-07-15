@@ -1,7 +1,9 @@
 import funciones_basicas.Funciones_voz as Fv 
-#import pywhatkit, json
+import json
 import conexiones.tcpclienttest.main as tcp
 import speech_recognition as sr
+import pdb
+import funciones_basicas.sonidos  as son
 
 #############FUNCIONES DE JUNO######################  
 
@@ -47,20 +49,60 @@ def mensajes(rec,datos):
 
 def operaciones(rec):
             endo = ""
+            #enciende luces cuarto uno 
+            #en|lu|cuar
+            #abr|cocher
             rec = rec.split(' ')
-            modulo = rec[-1]
+            modulo = rec[1]
             orden = rec[0]
+            coordenada = ""
+            try:
+                coordenada = rec[2]
+            except:
+                print()
+            
+            print(coordenada)
             if orden == 'encender':
                 endo = "encendiendo"
+                son.encendiendo()
             elif orden == 'apagar':
                 endo = "apagando"
+                son.apagando()
             elif orden == 'abrir':
                 endo = "abriendo"
+                son.abriendo()
             elif orden == 'cerrar':
                 endo = "cerrando"
-            Fv.habla(endo+" "+modulo)
+                son.cerrando()
+
+            if modulo == 'luces':
+                print()
+                son.luces()
+            elif modulo == 'cochera':
+                print()
+                son.cochera()
+            elif modulo == 'puerta':
+                print()
+                son.puerta()
+            
+            if coordenada == 'cuarto':
+                print()
+                son.cuarto()
+            elif coordenada == 'almacen':
+                print()
+                son.almacen()
+            elif coordenada == 'principal':
+                print()
+                son.principal()
+            elif coordenada == 'trasera':
+                print()
+                son.trasera()
+            elif coordenada == 'sala':
+                print()
+                son.sala()
+            #Fv.habla(endo+" "+modulo)
             try:
-             tcp.tcpclient(orden,modulo)
+             tcp.tcpclient(orden,modulo,coordenada)
             except:
                 Fv.habla("uy ocurrio un error a conectarme a tu casa")
 
@@ -75,4 +117,5 @@ def protocolo(rec):
     for i in range (0,2):
         i = str(i)
         contacto = json.loads(datos)[rec][i]
+        print(contacto)
         operaciones(contacto)

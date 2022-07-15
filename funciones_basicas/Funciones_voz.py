@@ -4,6 +4,7 @@ import speech_recognition as sr
 import subprocess as sub
 import jsons.des_cod as frase
 from . import Record
+import funciones_basicas.sonidos  as sonido
 
 nombre = 'juno'
 r = sr.Recognizer()
@@ -32,13 +33,14 @@ def MensajesVoz():
     return mes
 
 
-def listen():
+def listen(con):
     rec = ""
     try:
         # with sr.Microphone() as source:
         #    habla(frase.palabras("te_escucho"))
         #    r.adjust_for_ambient_noise(source, 1)
         #    audio = r.listen(source)
+        sonido.encendiendo()
         data = Record.listen()
         rec = r.recognize_google(data, language="es")
         rec = rec.lower()
@@ -47,9 +49,15 @@ def listen():
             print(rec)
     except sr.UnknownValueError:
         print("no se entendio")
-        habla(frase.palabras("no_entiendo"))
+        if con :
+            habla(frase.palabras("no_entiendo"))
+        else:
+            sonido.No_entiendo()
     except:
-        habla(frase.palabras("no_entiendo"))
+        if con:
+            habla(frase.palabras("no_entiendo"))
+        else:
+           sonido.No_entiendo() 
     return rec
 
 

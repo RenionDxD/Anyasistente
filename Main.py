@@ -1,14 +1,14 @@
 ############FUNCION DE MENU######################
-def JUNO():
+def JUNO(con):
  import funciones_basicas.Funciones_voz as Fv 
  import funciones_basicas.Funciones as FJ  
 
  while True:
-    #llamado = Fv.Atencion()
-    llamado = "ania"
+    llamado = Fv.Atencion()
+    #llamado = "ania"
     print(llamado)
     if 'ania' in llamado:
-        rec = Fv.listen()
+        rec = Fv.listen(con)
         #rec = "apagar luces"
         print(rec)
         if 'reproduce' in rec:
@@ -57,17 +57,17 @@ from socket import create_connection, gethostbyname
 import funciones_basicas.sonidos  as sonido
 import speech_recognition as sr  
 if __name__ == '__main__':
-   JUNO()
+   JUNO(True) 
    def conexion():
      try:
         sonido.CARGANDO() 
         gethostbyname("google.com")
         conexion = create_connection(("google.com", 80), 1)
         conexion.close()
-        return sonido.ENTRADA(), JUNO()
+        return sonido.ENTRADA(), JUNO(True)
      except sr.UnknownValueError:
         return "algo fallo"
      except:
-        return sonido.No_internet(),sonido.SALIDA()           
+        return sonido.No_internet(),sonido.SALIDA(), JUNO(False)          
 #conexion()
         

@@ -58,4 +58,82 @@ def No_internet():
     mixer.music.load('sounds/anya_no_internet/no_hay_internet.mp3')    
     mixer.music.set_volume(0.7)
     mixer.music.play()
-    time.sleep(10)
+    time.sleep(2)
+
+def No_entiendo():
+    mixer.music.load('sounds/anya_no_internet/no_entiendo.mp3')    
+    mixer.music.set_volume(0.7)
+    mixer.music.play()
+    time.sleep(2)
+
+def encendiendo():
+    mixer.music.load('sounds/anya_no_internet/encendiendo.mp3')    
+    mixer.music.set_volume(0.7)
+    mixer.music.play()
+    time.sleep(1)
+
+def apagando():
+    mixer.music.load('sounds/anya_no_internet/apagando.mp3')    
+    mixer.music.set_volume(0.7)
+    mixer.music.play()
+    time.sleep(2)
+
+def abriendo():
+    mixer.music.load('sounds/anya_no_internet/abriendo.mp3')    
+    mixer.music.set_volume(0.7)
+    mixer.music.play()
+    time.sleep(2)
+
+def cerrando():
+    mixer.music.load('sounds/anya_no_internet/cerrando.mp3')    
+    mixer.music.set_volume(0.7)
+    mixer.music.play()
+    time.sleep(2)
+
+def luces():
+    mixer.music.load('sounds/anya_no_internet/luces.mp3')    
+    mixer.music.set_volume(0.7)
+    mixer.music.play()
+    time.sleep(0)
+
+def cochera():
+    mixer.music.load('sounds/anya_no_internet/cochera.mp3')    
+    mixer.music.set_volume(0.7)
+    mixer.music.play()
+    time.sleep(2)
+
+def puerta():
+    mixer.music.load('sounds/anya_no_internet/puerta.mp3')    
+    mixer.music.set_volume(0.7)
+    mixer.music.play()
+    time.sleep(2)
+
+def cuarto():
+    mixer.music.load('sounds/anya_no_internet/cuarto.mp3')    
+    mixer.music.set_volume(0.7)
+    mixer.music.play()
+    time.sleep(2)
+
+def almacen():
+    mixer.music.load('sounds/anya_no_internet/almacen.mp3')    
+    mixer.music.set_volume(0.7)
+    mixer.music.play()
+    time.sleep(2)
+
+def principal():
+    mixer.music.load('sounds/anya_no_internet/principal.mp3')    
+    mixer.music.set_volume(0.7)
+    mixer.music.play()
+    time.sleep(2)
+
+def trasera():
+    mixer.music.load('sounds/anya_no_internet/trasera.mp3')    
+    mixer.music.set_volume(0.7)
+    mixer.music.play()
+    time.sleep(2)
+
+def sala():
+    mixer.music.load('sounds/anya_no_internet/sala.mp3')    
+    mixer.music.set_volume(0.7)
+    mixer.music.play()
+    time.sleep(2)

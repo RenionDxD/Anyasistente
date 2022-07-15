@@ -1,16 +1,16 @@
 import socket
 import funciones_basicas.Funciones_voz as Fv
 
-def tcpclient(orden,modulo):
+def tcpclient(orden,modulo,coordenada):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_address = ('192.168.0.16', 50001)
     print('connecting to ' + server_address[0])
     sock.connect(server_address)
 
     try:
-        print(orden,modulo)
-        message = f'action|{orden}|{modulo}'.encode('utf8')
-
+        print(orden,modulo,coordenada)
+        message = f'{orden}|{modulo}|{coordenada}'.encode('utf8')
+        
         sock.sendall(message)
 
         amount_received = 0

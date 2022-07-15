@@ -7,8 +7,8 @@
                      },
 
    "buenas noches" : {
-                        "1" : "apagar luces",
-                        "0" : "encender luces"
+                        "0" : "apagar luces",
+                        "1" : "encender luces"
    }
 
 

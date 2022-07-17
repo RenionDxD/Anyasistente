@@ -1,5 +1,6 @@
 import socket
 import funciones_basicas.Funciones_voz as Fv
+import conexiones.tcpclienttest.seewping as seew
 
 def tcpclient(orden,modulo,coordenada):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

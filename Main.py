@@ -57,7 +57,7 @@ from socket import create_connection, gethostbyname
 import funciones_basicas.sonidos  as sonido
 import speech_recognition as sr  
 if __name__ == '__main__':
-   JUNO(True) 
+   #JUNO(True) 
    def conexion():
      try:
         sonido.CARGANDO() 
@@ -69,5 +69,5 @@ if __name__ == '__main__':
         return "algo fallo"
      except:
         return sonido.No_internet(),sonido.SALIDA(), JUNO(False)          
-#conexion()
+conexion()
         

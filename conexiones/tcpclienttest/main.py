@@ -1,10 +1,14 @@
 import socket
 import funciones_basicas.Funciones_voz as Fv
 import conexiones.tcpclienttest.seewping as seew
+from dotenv import dotenv_values
+import os
+
+config = dotenv_values(".env")
 
 def tcpclient(orden,modulo,coordenada):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_address = ('192.168.0.16', 50001)
+    server_address = (os.getenv('ESP1IP'), 50001)
     print('connecting to ' + server_address[0])
     sock.connect(server_address)
 

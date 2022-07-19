@@ -49,6 +49,7 @@ def mensajes(rec,datos):
 
 def operaciones(rec):
             endo = ""
+            coordenada = ""
             #enciende luces cuarto uno 
             #en|lu|cuar
             #abr|cocher
@@ -58,10 +59,11 @@ def operaciones(rec):
             coordenada = ""
             try:
                 coordenada = rec[2]
+                print(coordenada)
             except:
                 print()
             
-            print(coordenada)
+            print(orden+ " " +modulo+" "+coordenada+" cagada")
             if orden == 'encender':
                 endo = "encendiendo"
                 son.encendiendo()
@@ -76,13 +78,10 @@ def operaciones(rec):
                 son.cerrando()
 
             if modulo == 'luces':
-                print()
                 son.luces()
             elif modulo == 'cochera':
-                print()
                 son.cochera()
             elif modulo == 'puerta':
-                print()
                 son.puerta()
             
             if coordenada == 'cuarto':
@@ -96,7 +95,7 @@ def operaciones(rec):
                 son.principal()
             elif coordenada == 'trasera':
                 print()
-                son.trasera()
+                #son.trasera()#
             elif coordenada == 'sala':
                 print()
                 son.sala()
@@ -104,7 +103,8 @@ def operaciones(rec):
             try:
              tcp.tcpclient(orden,modulo,coordenada)
             except:
-                Fv.habla("uy ocurrio un error a conectarme a tu casa")
+                #Fv.habla("uy ocurrio un error a conectarme a tu casa")#
+                print("me chinge la concexion")
 
 
 def crear_protocolo():
@@ -114,7 +114,7 @@ def crear_protocolo():
 def protocolo(rec):
     with open('jsons/operac_casa.json','r') as contenido:
        datos  = contenido.read()
-    for i in range (0,2):
+    for i in range (0,3):
         i = str(i)
         contacto = json.loads(datos)[rec][i]
         print(contacto)

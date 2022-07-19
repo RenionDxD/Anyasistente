@@ -40,7 +40,7 @@ def listen(con):
         #    habla(frase.palabras("te_escucho"))
         #    r.adjust_for_ambient_noise(source, 1)
         #    audio = r.listen(source)
-        sonido.encendiendo()
+        sonido.te_escucho()
         data = Record.listen()
         rec = r.recognize_google(data, language="es")
         rec = rec.lower()

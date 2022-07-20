@@ -2,54 +2,62 @@
 def JUNO(con):
  import funciones_basicas.Funciones_voz as Fv 
  import funciones_basicas.Funciones as FJ  
-
+ import conexiones.tcpclienttest.main as tcp
+ import conexiones.tcpclienttest.cliente_compu as tcp
+ import threading
+ import alarma as al
  while True:
     llamado = Fv.Atencion()
-    #llamado = "ania"
+    #llamado = 'ania'
     print(llamado)
     if 'ania' in llamado:
         rec = Fv.listen(con)
-        #rec = "apagar luces"
+        #rec = "reproduce juegagerman en con claudio"
         print(rec)
         if 'reproduce' in rec:
-            FJ.reproduceY(rec)
+            #FJ.reproduceY(rec)
+            instruction,ip = FJ.session(rec)
+            print(instruction,ip)
+            tcp.tcpCompus(instruction,ip)
         elif 'hora' in rec:
             FJ.hora()
         elif 'busca' in rec:
             FJ.buscaW(rec)
         elif 'mensaje' in rec:
-            if 'mensaje' in rec:
-                rec = rec.replace('mensaje','')
-            with open('contactos_What.json','r') as contenido:
-                FJ.mensajes(rec,contenido.read())
+            sonido.contacto()
+            contacto = Fv.MensajesVoz()
+            sonido.mensaje()
+            mensaje = Fv.MensajesVoz()
+            orden = f'{contacto}|{mensaje}'
+            tcp.tcpCompus(orden+"localhost")
+            #if 'mensaje' in rec:
+             #   rec = rec.replace('mensaje','')
+            #with open('contactos_What.json','r') as contenido:
+             #   FJ.mensajes(rec,contenido.read())
         elif 'alarma' in rec:
-            import threading
-            import alarma as al
             alar = rec.replace('alarma', '')
             #alar = "01:49"
             thread = threading.Thread(target=al.programar_ala, args=(alar,))
             thread.start()
-        elif 'ayuda' in rec:
-            hel = rec.replace('ayuda', '')
-            help()
-        elif 'crear' in rec:
-            print("entra a crear")
         elif 'protocolo' in rec:
             print("hola1")
             rec = rec.replace('protocolo ', '')
             print("lkfnwoedfnw")
             FJ.protocolo(rec)
         elif 'adiós' in rec:
-            Fv.habla("hasta luego señor")
+            #Fv.habla("hasta luego señor")
             break
         elif 'encender' in rec or 'apagar' in rec or 'abrir' in rec or 'cerrar' in rec:
             print("puta madre")
             FJ.operaciones(rec)
         else:
           #conversacion(rec)
-          print("hhhh")
+          print("no llamaste a nada")
+    elif 'siri' in llamado:
+            sonido.siri()
     else:
-        print("lllll")
+        print("fin de esuchar")
+        sonido.INICIANDO()
             
 
 ##########FUNCION PRINCIPAL#############
@@ -57,7 +65,7 @@ from socket import create_connection, gethostbyname
 import funciones_basicas.sonidos  as sonido
 import speech_recognition as sr  
 if __name__ == '__main__':
-   #JUNO(True) 
+   JUNO(True) 
    def conexion():
      try:
         sonido.CARGANDO() 
@@ -69,5 +77,5 @@ if __name__ == '__main__':
         return "algo fallo"
      except:
         return sonido.No_internet(),sonido.SALIDA(), JUNO(False)          
-conexion()
+#conexion()
         

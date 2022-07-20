@@ -3,7 +3,7 @@ import pywhatkit
 
 def tcpserver():
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_address = ('', 10000)
+    server_address = ('localhost', 10000)
     print('starting up on ' + server_address[0])
     sock.bind(server_address)
 
@@ -31,15 +31,8 @@ def tcpserver():
         finally:
             # Clean up the connection
             connection.close()
-            msg = msg.split('|')
-            if msg[2] == "encender":
-                pywhatkit.search(msg[-1]) 
-            elif msg[2] == "apagar":
-                pywhatkit.playonyt(msg[-1])
-            elif msg[2] == "abrir":
-                print("abriendo")
-            elif msg[2] == "cerrar":
-                print("cerrar")
+            #msg = msg.split('|')
+            print(msg)
 
 if __name__ == '__main__':
     tcpserver()

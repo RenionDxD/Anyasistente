@@ -1,5 +1,4 @@
 from pygame import mixer
-import pygame
 import time
 
 
@@ -50,7 +49,7 @@ def FIN():
 
 def INICIANDO():
     mixer.music.load('sounds/INICIANDO.mp3')
-    mixer.music.set_volume(0.7)
+    mixer.music.set_volume(0.3)
     mixer.music.play()
     time.sleep(2)
     
@@ -127,7 +126,7 @@ def principal():
     time.sleep(1)
 
 def trasera():
-    mixer.music.load('sounds/anya_no_internet/trasera.mp3')    
+    mixer.music.load('sounds/anya_no_internet/tracera.mp3')    
     mixer.music.set_volume(0.7)
     mixer.music.play()
     time.sleep(1)
@@ -140,6 +139,24 @@ def sala():
 
 def te_escucho():
     mixer.music.load('sounds/anya_no_internet/te_escucho.mp3')    
+    mixer.music.set_volume(0.7)
+    mixer.music.play()
+    time.sleep(1)
+    
+def siri():
+    mixer.music.load('sounds/anya_no_internet/no_soy_siri.mp3')    
+    mixer.music.set_volume(0.7)
+    mixer.music.play()
+    time.sleep(1)
+
+def contacto():
+    mixer.music.load('sounds/anya_no_internet/contacto.mp3')    
+    mixer.music.set_volume(0.7)
+    mixer.music.play()
+    time.sleep(1)
+
+def mensaje():
+    mixer.music.load('sounds/anya_no_internet/mensaje.mp3')    
     mixer.music.set_volume(0.7)
     mixer.music.play()
     time.sleep(1)

@@ -5,15 +5,19 @@ from dotenv import dotenv_values
 import os
 import traceback
 
+from funciones_basicas.sonidos import mensaje
+
 config = dotenv_values(".env")
 
 def tcpclient(orden,modulo,coordenada):
+    message = ""
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_address = ("172.20.10.4", 50001)
+    server_address = ("192.168.0.2", 10000)#50001)
     print('connecting to ' + server_address[0])
     sock.connect(server_address)
 
     try:
+        message = ""
         print(orden,modulo,coordenada)
         message = f'{orden}|{modulo}|{coordenada}'.encode('utf8')
         print(message)

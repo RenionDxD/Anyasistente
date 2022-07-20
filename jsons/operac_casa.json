@@ -1,15 +1,31 @@
 {
    "protocolos" : {
-                        "0" : "encender luces",
-                        "1" : "apagar luces",
-                        "2" : "abrir puerta",
-                        "3" : "cerrar puerta"
+                        "0" : "encender luces cuarto",
+                        "1" : "apagar luces cuarto",
+                        "2" : "abrir puerta trasera",
+                        "3" : "cerrar puerta trasera"
                      },
 
    "buenas noches" : {
-                        "0" : "apagar luces cuarto",
+                        "0" : "youtube https://www.youtube.com/watch?v=YN3O2AlmJ8c",
                         "1" : "encender luces sala",
-                        "2" : "cerrar puerta trasera"
+                        "2" : "cerrar puerta trasera",
+                        "3" : "cerrar cochera",
+                        "4" : "apagar luces cuarto"
+   },
+   "caja fuerte" : {
+                        "0" : "cerrar puerta trasera",
+                        "1" : "apagar luces sala",
+                        "2" : "apagar luces almacén",
+                        "3" : "cerrar cochera",
+                        "4" :"apagar luces cuarto"
+   },
+   "buenos días" : {
+                        "0" : "youtube https://www.youtube.com/watch?v=4hXlRAWgYrk",
+                        "1" : "apagar luces cuarto",
+                        "2" : "apagar luces sala",
+                        "3" : "abrir puerta trasera",
+                        "4" : "abrir puerta principal"
    }
 
 

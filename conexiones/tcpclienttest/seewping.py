@@ -6,7 +6,7 @@ import socket
 #ip address string must be in unicode to use ipaddress module
 def seew(): 
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    s.connect(("8.8.8.8", 80))
+    s.connect(("localhost", 80))
     id = s.getsockname()[0]
     s.close()
     #return id

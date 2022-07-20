@@ -28,7 +28,8 @@ def MensajesVoz():
         mes = s.recognize_google(data, language="es")
         mes = mes.lower()
     except:
-        habla('Perdona no pude entenderte')
+        #habla('Perdona no pude entenderte')
+        print("no te he entendido")
 
     return mes
 

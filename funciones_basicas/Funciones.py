@@ -1,9 +1,10 @@
 import funciones_basicas.Funciones_voz as Fv 
 import json
-import conexiones.tcpclienttest.main as tcp
+import conexiones.tcpclienttest.main as tcps
 import speech_recognition as sr
 import pdb
 import funciones_basicas.sonidos  as son
+import conexiones.tcpclienttest.cliente_compu as tcp
 
 #############FUNCIONES DE JUNO######################  
 
@@ -95,13 +96,13 @@ def operaciones(rec):
                 son.principal()
             elif coordenada == 'trasera':
                 print()
-                #son.trasera()#
+                son.trasera()
             elif coordenada == 'sala':
                 print()
                 son.sala()
             #Fv.habla(endo+" "+modulo)
             try:
-             tcp.tcpclient(orden,modulo,coordenada)
+             tcps.tcpclient(orden,modulo,coordenada)
             except:
                 #Fv.habla("uy ocurrio un error a conectarme a tu casa")#
                 print("me chinge la concexion")
@@ -114,8 +115,34 @@ def crear_protocolo():
 def protocolo(rec):
     with open('jsons/operac_casa.json','r') as contenido:
        datos  = contenido.read()
-    for i in range (0,3):
-        i = str(i)
-        contacto = json.loads(datos)[rec][i]
+    for i in range (0,5):
+        link = ""
+        contacto = json.loads(datos)[rec][str(i)]
         print(contacto)
-        operaciones(contacto)
+        if 'youtube' in contacto:
+            link = contacto.replace('youtube ', '')
+            complet = "reproduce "+link
+            tcp.tcpCompus(complet,"192.168.0.6")
+        else:
+            print(link)
+            operaciones(contacto)
+
+def session(rec):
+    print("la sesion se ha iniciado")
+    rec = rec.split(' ')
+    instruction = rec[0]+" "+rec[1]
+    sesion=rec[-1]
+    if sesion == 'ricardo':
+        print("ricardo")
+        ip = "192.168.1.242"
+        return instruction,ip
+    elif sesion == 'claudio':
+        print("claudio")
+        ip = "192.168.1.204"
+        print(instruction)
+        return instruction,ip
+    elif sesion == 'yahir':
+        print("jair")
+        ip = "localhost"
+        return instruction,ip
+

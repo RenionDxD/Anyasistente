@@ -1,3 +1,4 @@
+from dis import Instruction
 import funciones_basicas.Funciones_voz as Fv 
 import json
 import conexiones.tcpclienttest.main as tcps
@@ -5,6 +6,7 @@ import speech_recognition as sr
 import pdb
 import funciones_basicas.sonidos  as son
 import conexiones.tcpclienttest.cliente_compu as tcp
+from jsons.des_cod import palabras
 
 #############FUNCIONES DE JUNO######################  
 
@@ -130,7 +132,7 @@ def protocolo(rec):
 def session(rec):
     print("la sesion se ha iniciado")
     rec = rec.split(' ')
-    instruction = rec[0]+" "+rec[1]
+    instruction = rec
     sesion=rec[-1]
     if sesion == 'ricardo':
         print("ricardo")
@@ -143,6 +145,8 @@ def session(rec):
         return instruction,ip
     elif sesion == 'yahir':
         print("jair")
-        ip = "localhost"
+        ip = "192.168.0.6"
         return instruction,ip
-
+    else:
+        ip = "192.168.1.242"
+        return instruction,ip

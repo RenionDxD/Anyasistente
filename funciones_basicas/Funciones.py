@@ -57,7 +57,11 @@ def operaciones(rec):
             #en|lu|cuar
             #abr|cocher
             rec = rec.split(' ')
-            modulo = rec[1]
+            modulo = ""
+            try:
+                modulo = rec[1]
+            except:
+                print("no hay modulo")
             orden = rec[0]
             coordenada = ""
             try:
@@ -90,7 +94,7 @@ def operaciones(rec):
             if coordenada == 'cuarto':
                 print()
                 son.cuarto()
-            elif coordenada == 'almacen':
+            elif coordenada == 'almacén"':
                 print()
                 son.almacen()
             elif coordenada == 'principal':
@@ -107,7 +111,8 @@ def operaciones(rec):
              tcps.tcpclient(orden,modulo,coordenada)
             except:
                 #Fv.habla("uy ocurrio un error a conectarme a tu casa")#
-                print("me chinge la concexion")
+                print("error en try operaciones()")
+                son.error_casa_con()
 
 
 def crear_protocolo():
@@ -125,9 +130,8 @@ def protocolo(rec):
             link = contacto.replace('youtube ', '')
             complet = "reproduce "+link
             tcp.tcpCompus(complet,"192.168.0.6")
-        else:
-            print(link)
-            operaciones(contacto)
+        operaciones(contacto)
+
 
 def session(rec):
     print("la sesion se ha iniciado")
@@ -136,17 +140,17 @@ def session(rec):
     sesion=rec[-1]
     if sesion == 'ricardo':
         print("ricardo")
-        ip = "192.168.1.242"
+        ip = "192.168.0.6"
         return instruction,ip
     elif sesion == 'claudio':
         print("claudio")
-        ip = "192.168.1.204"
+        ip = "192.168.0.2"
         print(instruction)
         return instruction,ip
     elif sesion == 'yahir':
         print("jair")
-        ip = "192.168.0.6"
+        ip = "172.20.10.8"
         return instruction,ip
     else:
-        ip = "192.168.1.242"
+        ip = "192.168.0.6"
         return instruction,ip

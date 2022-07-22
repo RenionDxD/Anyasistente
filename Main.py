@@ -1,11 +1,11 @@
 ############FUNCION DE MENU######################
+import funciones_basicas.Funciones_voz as Fv 
+import funciones_basicas.Funciones as FJ  
+import conexiones.tcpclienttest.main as tcp
+import conexiones.tcpclienttest.cliente_compu as tcp
+import threading
+import alarma as al
 def JUNO(con):
- import funciones_basicas.Funciones_voz as Fv 
- import funciones_basicas.Funciones as FJ  
- import conexiones.tcpclienttest.main as tcp
- import conexiones.tcpclienttest.cliente_compu as tcp
- import threading
- import alarma as al
  while True:
     llamado = Fv.Atencion()
     #llamado = 'ania'
@@ -16,9 +16,12 @@ def JUNO(con):
         print(rec)
         if 'reproduce' in rec:
             #FJ.reproduceY(rec)
+           try: 
             instruction,ip = FJ.session(rec)
             print(instruction,ip)
             tcp.tcpCompus(instruction,ip)
+           except:
+            sonido.error_comando()
         elif 'hora' in rec:
             FJ.hora()
         elif 'busca' in rec:
@@ -40,10 +43,13 @@ def JUNO(con):
             thread = threading.Thread(target=al.programar_ala, args=(alar,))
             thread.start()
         elif 'protocolo' in rec:
+          try:
             print("hola1")
             rec = rec.replace('protocolo ', '')
             print("lkfnwoedfnw")
             FJ.protocolo(rec)
+          except:
+            sonido.error_comando()
         elif 'adiós' in rec:
             #Fv.habla("hasta luego señor")
             break
@@ -65,7 +71,7 @@ from socket import create_connection, gethostbyname
 import funciones_basicas.sonidos  as sonido
 import speech_recognition as sr  
 if __name__ == '__main__':
-   #JUNO(True) 
+   JUNO(True) 
    def conexion():
      try:
         sonido.CARGANDO() 
@@ -77,5 +83,5 @@ if __name__ == '__main__':
         return "algo fallo"
      except:
         return sonido.No_internet(),sonido.SALIDA(), JUNO(False)          
-conexion()
+#conexion()
         

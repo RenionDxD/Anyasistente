@@ -25,8 +25,9 @@
                         "1" : "apagar luces cuarto",
                         "2" : "apagar luces sala",
                         "3" : "abrir puerta trasera",
-                        "4" : "abrir puerta principal"
+                        "4" : "abrir cochera"
    }
+
 
 
 }

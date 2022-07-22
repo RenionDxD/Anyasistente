@@ -4,15 +4,16 @@ import conexiones.tcpclienttest.seewping as seew
 from dotenv import dotenv_values
 import os
 import traceback
-
-from funciones_basicas.sonidos import mensaje
+import funciones_basicas.sonidos  as son
 
 config = dotenv_values(".env")
 
 def tcpclient(orden,modulo,coordenada):
+ #try:
     message = ""
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_address = ("192.168.0.2", 10000)#50001)
+    sock.settimeout(6)
+    server_address = ('192.168.0.8', 50001)
     print('connecting to ' + server_address[0])
     sock.connect(server_address)
 
@@ -33,10 +34,13 @@ def tcpclient(orden,modulo,coordenada):
             print('received')
     except Exception:
         traceback.print_exc()
-        Fv.habla("uy ocurrio un error a conectarme a tu casa pppppppp")
+        son.error_casa_con()
+        #Fv.habla("uy ocurrio un error a conectarme a tu casa pppppppp")
         sock.close()
     finally:
         print('closing socket')
         sock.close()
+ #except:
+  #  son.error_casa_con()  
 
 

@@ -160,3 +160,21 @@ def mensaje():
     mixer.music.set_volume(0.7)
     mixer.music.play()
     time.sleep(1)
+
+def error_casa_con():
+    mixer.music.load('sounds/anya_no_internet/error_conectar_casa.mp3')    
+    mixer.music.set_volume(0.7)
+    mixer.music.play()
+    time.sleep(1)
+
+def error_comando():
+    mixer.music.load('sounds/anya_no_internet/error_comando.mp3')    
+    mixer.music.set_volume(0.7)
+    mixer.music.play()
+    time.sleep(1)
+
+def error_dis():
+    mixer.music.load('sounds/anya_no_internet/error_disp.mp3')    
+    mixer.music.set_volume(0.7)
+    mixer.music.play()
+    time.sleep(1)

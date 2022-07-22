@@ -11,7 +11,7 @@ config = dotenv_values(".env")
 def tcpCompus(rec,ip):
  try:
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.settimeout(6)
+    sock.settimeout(10)
     server_address = (ip, 10000)#50001)
     print('connecting to ' + server_address[0])
     sock.connect(server_address)

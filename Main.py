@@ -44,9 +44,9 @@ def JUNO(con):
             thread.start()
         elif 'protocolo' in rec:
           try:
-            print("hola1")
+            print("portocolo")
             rec = rec.replace('protocolo ', '')
-            print("lkfnwoedfnw")
+            print("grabacion exitosa")
             FJ.protocolo(rec)
           except:
             sonido.error_comando()
@@ -54,7 +54,7 @@ def JUNO(con):
             #Fv.habla("hasta luego señor")
             break
         elif 'encender' in rec or 'apagar' in rec or 'abrir' in rec or 'cerrar' in rec:
-            print("puta madre")
+            print("if operaciones")
             FJ.operaciones(rec)
         else:
           #conversacion(rec)

@@ -4,7 +4,7 @@ import speech_recognition as sr
 import tempfile
 
 fs = 16000  # sample rate
-duration = 5  # seconds
+duration = 3  # seconds
 sd.default.samplerate = fs
 sd.default.channels = 2
 

@@ -129,7 +129,7 @@ def protocolo(rec):
         if 'youtube' in contacto:
             link = contacto.replace('youtube ', '')
             complet = "reproduce "+link
-            tcp.tcpCompus(complet,"192.168.0.6")
+            tcp.tcpCompus(complet,"192.168.43.34")
         operaciones(contacto)
 
 
@@ -140,11 +140,11 @@ def session(rec):
     sesion=rec[-1]
     if sesion == 'ricardo':
         print("ricardo")
-        ip = "192.168.0.6"
+        ip = "192.168.43.34"
         return instruction,ip
-    elif sesion == 'claudio':
-        print("claudio")
-        ip = "192.168.0.2"
+    elif sesion == 'celular':
+        print("celular")
+        ip = "192.168.43.181"
         print(instruction)
         return instruction,ip
     elif sesion == 'yahir':
@@ -152,5 +152,5 @@ def session(rec):
         ip = "172.20.10.8"
         return instruction,ip
     else:
-        ip = "192.168.0.6"
+        ip = "192.168.43.34"
         return instruction,ip

@@ -12,8 +12,8 @@ def tcpclient(orden,modulo,coordenada):
  #try:
     message = ""
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.settimeout(6)
-    server_address = ('192.168.0.8', 50001)
+    sock.settimeout(10)
+    server_address = ('192.168.43.33', 50001)
     print('connecting to ' + server_address[0])
     sock.connect(server_address)
 
